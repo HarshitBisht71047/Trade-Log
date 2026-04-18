@@ -1032,9 +1032,9 @@ function App() {
         ))
       ),
       React.createElement('div', { className: 'sidebar-user' },
-        React.createElement('a', { href: 'https://discord.gg/FJqkYdtvEf', target: '_blank', rel: 'noopener noreferrer', style: { display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', background: 'rgba(88,101,242,0.1)', color: '#5865F2', borderRadius: '8px', textDecoration: 'none', marginBottom: '1rem', fontSize: '0.9rem', fontWeight: '600' } },
+        React.createElement('a', { href: 'https://discord.gg/FJqkYdtvEf', target: '_blank', rel: 'noopener noreferrer', className: 'discord-link', style: { display: 'flex', alignItems: 'center', gap: '0.75rem', padding: '0.75rem 1rem', background: 'rgba(88,101,242,0.1)', color: '#5865F2', borderRadius: '8px', textDecoration: 'none', marginBottom: '1rem', fontSize: '0.9rem', fontWeight: '600' } },
           React.createElement('i', { className: 'ph ph-discord-logo', style: { fontSize: '1.2rem' } }),
-          'Feedback & Support'
+          React.createElement('span', { className: 'discord-text' }, 'Feedback & Support')
         ),
         React.createElement('div', { className: 'user-pill' },
           React.createElement('div', { className: 'user-avatar' }, typeof user.avatar === 'object' || user.avatar === 'guest' ? React.createElement('i', { className: 'ph ph-user' }) : (user.avatar || user.name[0])),

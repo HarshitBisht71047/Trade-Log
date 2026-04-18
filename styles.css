@@ -108,7 +108,8 @@ body { font-family: 'Syne', sans-serif; background: var(--bg); color: var(--text
 .charts-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 1.25rem; margin-bottom: 2rem; }
 .chart-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
 .chart-title { font-size: 0.85rem; font-weight: 700; color: var(--text2); letter-spacing: 0.03em; text-transform: uppercase; margin-bottom: 1rem; }
-.chart-wrap { position: relative; }
+.chart-wrap { position: relative; width: 100%; max-width: 100%; overflow: hidden; }
+canvas { max-width: 100% !important; height: auto !important; }
 
 /* TRADE FORM */
 .form-card { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.75rem; margin-bottom: 1.5rem; }
@@ -129,8 +130,8 @@ body { font-family: 'Syne', sans-serif; background: var(--bg); color: var(--text
 /* TRADE TABLE */
 .table-wrap { background: var(--bg2); border: 1px solid var(--border); border-radius: var(--radius-lg); overflow: hidden; }
 table { width: 100%; border-collapse: collapse; }
-th { padding: 0.7rem 1rem; text-align: left; font-size: 0.72rem; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); background: var(--bg3); }
-td { padding: 0.8rem 1rem; font-size: 0.85rem; border-bottom: 1px solid var(--border); color: var(--text); font-family: 'DM Mono', monospace; }
+th { padding: 0.7rem 1rem; text-align: left; font-size: 0.72rem; font-weight: 700; color: var(--text3); text-transform: uppercase; letter-spacing: 0.05em; border-bottom: 1px solid var(--border); background: var(--bg3); white-space: nowrap; }
+td { padding: 0.8rem 1rem; font-size: 0.85rem; border-bottom: 1px solid var(--border); color: var(--text); font-family: 'DM Mono', monospace; white-space: nowrap; }
 tr:last-child td { border-bottom: none; }
 tr:hover td { background: var(--hover-bg); }
 .badge { padding: 0.2rem 0.55rem; border-radius: 20px; font-size: 0.72rem; font-weight: 600; font-family: 'Syne', sans-serif; }
@@ -175,7 +176,7 @@ tr:hover td { background: var(--hover-bg); }
 .img-link { display: inline-flex; align-items: center; justify-content: center; width: 24px; height: 24px; background: rgba(96,165,250,0.1); color: var(--blue); border-radius: 4px; text-decoration: none; font-size: 0.8rem; margin-left: 0.5rem; transition: 0.2s; }
 .img-link:hover { background: var(--blue); color: #fff; }
 
-.scrollable-table { overflow-x: auto; }
+.scrollable-table { overflow-x: auto; -webkit-overflow-scrolling: touch; width: 100%; }
 
 /* RESPONSIVE */
 @media (max-width: 900px) {
@@ -194,15 +195,17 @@ tr:hover td { background: var(--hover-bg); }
   .sidebar { width: 100%; height: auto; flex-direction: row; justify-content: space-between; padding: 0.5rem; border-right: none; border-top: 1px solid var(--border); position: fixed; bottom: 0; left: 0; right: 0; z-index: 100; background: var(--bg2); }
   .sidebar-logo, .sidebar-user { display: none; }
   .nav { display: flex; flex-direction: row; justify-content: space-around; padding: 0; width: 100%; }
-  .nav-item { border-left: none; border-top: 2px solid transparent; padding: 0.5rem; flex: 1; flex-direction: column; gap: 0.2rem; }
+  .nav-item { border-left: none; border-top: 2px solid transparent; padding: 0.5rem; flex: 1; flex-direction: column; gap: 0.2rem; align-items: center; justify-content: center; }
+  .nav-item span.nav-label { display: block !important; font-size: 0.65rem; text-align: center; font-weight: 600; margin-top: 2px; }
   .nav-item.active { border-left-color: transparent; border-top-color: var(--accent); }
   .nav-icon { font-size: 1.25rem; }
-  .main { padding: 1rem; margin-bottom: 70px; }
+  .main { padding: 1rem; margin-bottom: 70px; overflow-x: hidden; }
   .page-header { margin-bottom: 1rem; }
   .page-title { font-size: 1.4rem; }
   .stats-grid { grid-template-columns: 1fr 1fr; gap: 0.75rem; }
   .stat-card { padding: 0.75rem 1rem; }
   .stat-value { font-size: 1.25rem; }
+  .form-grid { grid-template-columns: 1fr; }
   .filter-row { gap: 0.5rem; flex-wrap: wrap; }
   .filter-btn { flex: 1 1 30%; text-align: center; font-size: 0.75rem; padding: 0.4rem; }
   .search-box { width: 100%; flex: 1 1 100%; }

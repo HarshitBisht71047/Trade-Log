@@ -1028,7 +1028,7 @@ function App() {
       React.createElement('nav', { className: 'nav' },
         navItems.map(n => React.createElement('div', { key: n.id, className: 'nav-item' + (page === n.id ? ' active' : ''), onClick: () => setPage(n.id) },
           React.createElement('span', { className: 'nav-icon mono' }, n.icon),
-          React.createElement('span', null, n.label)
+          React.createElement('span', { className: 'nav-label' }, n.label)
         ))
       ),
       React.createElement('div', { className: 'sidebar-user' },
